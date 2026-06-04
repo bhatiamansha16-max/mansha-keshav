@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Just Us · Mansha & Keshav</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Raleway',sans-serif;background:#FDFAF5;color:#1A1410;font-weight:300;overflow-x:hidden}
+:root{--ink:#1A1410;--warm:#FDFAF5;--stone:#E0D9CE;--muted:#6E6258;--faint:#ADA49A;--acc:#5C1A2A}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;height:56px;background:rgba(253,250,245,.97);border-bottom:1px solid var(--stone);display:flex;justify-content:space-between;align-items:center;padding:0 2.5rem;backdrop-filter:blur(8px)}
+.n-logo{font-family:'Cormorant',serif;font-size:16px;font-weight:400;letter-spacing:.1em;color:var(--ink);text-decoration:none}
+.n-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.n-links a{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);text-decoration:none;transition:color .2s}
+.n-links a:hover{color:var(--ink)}
+.n-links a.active{color:var(--acc);border-bottom:1px solid var(--acc);padding-bottom:1px}
+.n-links a.special{color:var(--acc);border:1px solid rgba(92,26,42,.3);padding:5px 14px;border-radius:0;font-size:9px;letter-spacing:.22em}
+.n-links a.special:hover{background:var(--acc);color:var(--warm)}
+
+/* SECTIONS */
+.sec{padding:72px 2.5rem;border-bottom:1px solid var(--stone)}
+.sec.alt{background:linear-gradient(135deg,#F9EDE0,#F5E6D4)}
+.inner{max-width:840px;margin:0 auto}
+.eyebrow{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:var(--faint);margin-bottom:.85rem;display:block}
+.sec-h{font-family:'Cormorant',serif;font-size:clamp(28px,3.5vw,40px);font-weight:300;line-height:1.1;margin-bottom:2.25rem}
+.sec-h em{font-style:italic;color:var(--acc)}
+
+/* FOOTER */
+footer{background:var(--acc);padding:48px 2.5rem;text-align:center}
+.ft-n{font-family:'Cormorant',serif;font-size:28px;font-style:italic;font-weight:300;color:var(--warm);margin-bottom:.5rem}
+.ft-r{width:22px;height:1px;background:rgba(253,250,245,.22);margin:.75rem auto}
+.ft-h{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(253,250,245,.55);margin-bottom:.3rem}
+.ft-d{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(253,250,245,.3)}
+
+@media(max-width:680px){
+  nav{padding:0 1rem}
+  .n-links{gap:1rem}
+  .n-links .hide-mob{display:none}
+}
+
+
+/* PAGE HERO */
+.us-hero{background:linear-gradient(160deg,#FDF6EE,#F9EDE0);padding:80px 2.5rem 64px;text-align:center;border-bottom:1px solid var(--stone)}
+.us-eyebrow{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:var(--faint);margin-bottom:1rem}
+.us-title{font-family:'Cormorant',serif;font-size:clamp(42px,6vw,68px);font-weight:300;font-style:italic;color:var(--ink);line-height:.92;margin-bottom:.5rem}
+.us-sub{font-family:'Cormorant',serif;font-size:18px;font-style:italic;color:var(--muted);margin-top:.75rem}
+
+/* VIDEO SECTION */
+.vid-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:.5rem}
+.vid-card{border:1px solid var(--stone);padding:1.5rem;background:rgba(255,255,255,.4)}
+.vid-label{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-bottom:.6rem}
+.vid-title{font-family:'Cormorant',serif;font-size:18px;font-weight:300;color:var(--ink);margin-bottom:.4rem}
+.vid-desc{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:1rem}
+.vid-placeholder{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#F4EDE4,#EDE4D8);display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px dashed var(--stone);cursor:pointer;transition:background .2s}
+.vid-placeholder:hover{background:linear-gradient(135deg,#EDE4D8,#E5D8C8)}
+.vid-placeholder .vp-icon{font-size:2rem;margin-bottom:.5rem;opacity:.4}
+.vid-placeholder .vp-text{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.vid-upload{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-top:.6rem;opacity:.7}
+
+/* QUICK FACTS */
+.facts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--stone);border:1px solid var(--stone);margin-top:.5rem}
+.fact{background:var(--warm);padding:1.75rem 1.5rem;text-align:center}
+.fact-icon{font-size:1.6rem;margin-bottom:.6rem}
+.fact-label{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-bottom:.4rem}
+.fact-val{font-family:'Cormorant',serif;font-size:20px;font-weight:300;color:var(--ink);font-style:italic;line-height:1.3}
+
+/* LOVE NOTES */
+.notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:.5rem}
+.note{border:1px solid var(--stone);padding:1.75rem;background:rgba(255,255,255,.4);position:relative}
+.note-who{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-bottom:.75rem}
+.note-text{font-family:'Cormorant',serif;font-size:17px;font-style:italic;color:var(--ink);line-height:1.65}
+.note-tag{display:inline-block;margin-top:.75rem;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);background:rgba(92,26,42,.06);padding:3px 10px}
+
+/* THINGS WE LOVE */
+.things{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:.5rem}
+.thing{border-left:2px solid var(--stone);padding:.75rem 1.25rem}
+.thing.his{border-color:var(--acc)}
+.thing.hers{border-color:#C9956A}
+.thing-who{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-bottom:.35rem}
+.thing-list{font-size:13px;color:var(--muted);line-height:1.9}
+
+/* BACK LINK */
+.back{display:inline-flex;align-items:center;gap:.5rem;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);text-decoration:none;margin-bottom:2rem;transition:color .18s}
+.back:hover{color:var(--ink)}
+
+@media(max-width:700px){
+  .vid-grid,.notes-grid,.things,.facts-grid{grid-template-columns:1fr}
+  .sec{padding:48px 1.25rem}
+  .us-hero{padding:56px 1.25rem 48px}
+}
+
+.vid-player{width:100%;aspect-ratio:16/9;display:block;background:#1A1410;object-fit:cover}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="n-logo" href="index.html">Mansha &amp; Keshav</a>
+  <ul class="n-links">
+    <li class="hide-mob"><a href="index.html#story">Story</a></li>
+    <li><a href="index.html#events">Events</a></li>
+    <li><a href="index.html#rsvp">RSVP</a></li>
+    <li><a href="us.html" class="special active">Just Us ✦</a></li>
+  </ul>
+</nav>
+
+<div class="us-hero">
+  <div class="us-eyebrow">A little more about the two of us</div>
+  <div class="us-title">Just Us</div>
+  <div class="us-sub">the gym guy &amp; the social butterfly — in their own words</div>
+</div>
+
+<!-- VIDEOS -->
+<div class="sec">
+  <div class="inner">
+    <a class="back" href="index.html">← Back to main site</a>
+    <span class="eyebrow">Moments in motion</span>
+    <h2 class="sec-h">Our <em>videos</em></h2>
+    <div class="vid-grid">
+      <div class="vid-card">
+        <div class="vid-label">Video 1</div>
+        <div class="vid-title">Our First Film</div>
+        <div class="vid-desc">A candid moment captured — just the two of them, exactly as they are.</div>
+        <video class="vid-player" controls playsinline poster="thumb1.jpg">
+          <source src="video1.mp4" type="video/mp4"/>
+        </video>
+      </div>
+      <div class="vid-card">
+        <div class="vid-label">Video 2</div>
+        <div class="vid-title">Our Second Film</div>
+        <div class="vid-desc">More of them together — the laughter, the ease, the quiet certainty of two people who just fit.</div>
+        <video class="vid-player" controls playsinline poster="thumb2.jpg">
+          <source src="video2.mp4" type="video/mp4"/>
+        </video>
+      </div>
+      <div class="vid-card">
+        <div class="vid-label">MK Reel</div>
+        <div class="vid-title">The MK Reel</div>
+        <div class="vid-desc">Their story, their moments, their energy — cut together just the way they are.</div>
+        <video class="vid-player" controls playsinline poster="thumb3.jpg">
+          <source src="video3.mp4" type="video/mp4"/>
+        </video>
+      </div>
+      <div class="vid-card">
+        <div class="vid-label">Performance</div>
+        <div class="vid-title">The Performance</div>
+        <div class="vid-desc">When they showed up and brought the house down. This one needs to be seen.</div>
+        <video class="vid-player" controls playsinline poster="thumb4.jpg">
+          <source src="video4.mp4" type="video/mp4"/>
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK FACTS -->
+<div class="sec alt">
+  <div class="inner">
+    <span class="eyebrow">The essentials</span>
+    <h2 class="sec-h">Quick <em>facts</em></h2>
+    <div class="facts-grid">
+      <div class="fact">
+        <div class="fact-icon">☕</div>
+        <div class="fact-label">How they met</div>
+        <div class="fact-val">Over families &amp; very careful conversation at The Leela</div>
+      </div>
+      <div class="fact">
+        <div class="fact-icon">💡</div>
+        <div class="fact-label">The gut feeling</div>
+        <div class="fact-val">First meeting, 27 June 2025 — both knew immediately</div>
+      </div>
+      <div class="fact">
+        <div class="fact-icon">🏋️</div>
+        <div class="fact-label">Keshav's love language</div>
+        <div class="fact-val">Acts of service (and making sure you hit your macros)</div>
+      </div>
+      <div class="fact">
+        <div class="fact-icon">✨</div>
+        <div class="fact-label">Mansha's love language</div>
+        <div class="fact-val">Quality time — preferably with good food and great people</div>
+      </div>
+      <div class="fact">
+        <div class="fact-icon">🐾</div>
+        <div class="fact-label">Their agreement</div>
+        <div class="fact-val">Still negotiating on the number of future pets</div>
+      </div>
+      <div class="fact">
+        <div class="fact-icon">🎯</div>
+        <div class="fact-label">Their superpower</div>
+        <div class="fact-val">Balancing each other out in exactly the right ways</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOVE NOTES -->
+<div class="sec">
+  <div class="inner">
+    <span class="eyebrow">In their own words</span>
+    <h2 class="sec-h">Notes to each <em>other</em></h2>
+    <div class="notes-grid">
+      <div class="note">
+        <div class="note-who">Keshav, to Mansha</div>
+        <div class="note-text">"You walk into a room and it just gets warmer. I never knew I needed someone like you until I did — and now I can't imagine it any other way."</div>
+        <div class="note-tag">#DumbbellsAndDimples</div>
+      </div>
+      <div class="note">
+        <div class="note-who">Mansha, to Keshav</div>
+        <div class="note-text">"You are the most disciplined, most steady, most quietly wonderful person I know. Also you need to stop waking me up at 5 AM. But I love you."</div>
+        <div class="note-tag">#DumbbellsAndDimples</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THINGS WE LOVE -->
+<div class="sec alt">
+  <div class="inner">
+    <span class="eyebrow">Separately and together</span>
+    <h2 class="sec-h">Things we <em>love</em></h2>
+    <div class="things">
+      <div class="thing his">
+        <div class="thing-who">Keshav</div>
+        <div class="thing-list">
+          Early mornings &amp; empty gyms<br>
+          A perfectly planned day<br>
+          Good food (that fits the macros)<br>
+          Sunrises over everything<br>
+          Quiet drives with good music
+        </div>
+      </div>
+      <div class="thing hers">
+        <div class="thing-who">Mansha</div>
+        <div class="thing-list">
+          Long brunches that turn into dinners<br>
+          Knowing everyone in the room<br>
+          Chai, always chai<br>
+          A packed calendar and loving it<br>
+          Dancing — anywhere, anytime
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="ft-n">Mansha &amp; Keshav</div>
+  <div class="ft-r"></div>
+  <div class="ft-h">#DumbbellsAndDimples</div>
+  <div class="ft-d">28 November – 6 December 2026 &nbsp;·&nbsp; Delhi NCR</div>
+</footer>
+
+</body>
+</html>

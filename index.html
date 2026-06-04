@@ -68,8 +68,10 @@ footer{background:var(--acc);padding:48px 2.5rem;text-align:center}
 .h-date{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
 .h-loc{font-family:'Cormorant',serif;font-size:17px;font-style:italic;color:var(--muted)}
 .h-ht{margin-top:2rem;font-size:10px;letter-spacing:.18em;color:var(--faint)}
-.hero-us-btn{display:inline-block;margin-top:1.25rem;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--warm);background:var(--acc);padding:12px 24px;text-decoration:none;transition:opacity .2s}
-.hero-us-btn:hover{opacity:.82}
+.hero-us-btn{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.75rem;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--warm);background:var(--acc);padding:14px 28px;text-decoration:none;transition:all .22s;box-shadow:0 2px 12px rgba(92,26,42,.25);border:none;cursor:pointer}
+.hero-us-btn:hover{background:#7A2038;box-shadow:0 4px 20px rgba(92,26,42,.35);transform:translateY(-1px)}
+.hero-us-btn .btn-arrow{font-size:14px;transition:transform .22s}
+.hero-us-btn:hover .btn-arrow{transform:translateX(4px)}
 
 /* STRIP — 4 photos, full width, fixed height, no cropping */
 .strip{width:100%;height:240px;display:flex;flex-direction:row;gap:2px;background:var(--stone);flex-shrink:0;overflow:hidden}
@@ -202,7 +204,7 @@ footer{background:var(--acc);padding:48px 2.5rem;text-align:center}
     <p class="h-date">28 November – 6 December 2026</p>
     <p class="h-loc">Gurgaon &amp; Faridabad, Delhi NCR</p>
     <p class="h-ht">#DumbbellsAndDimples</p>
-    <a href="us.html" class="hero-us-btn">Get to know us better ✦</a>
+    <a href="us.html" class="hero-us-btn">Click here to get to know us better <span class="btn-arrow">→</span></a>
   </div>
   <div class="hero-r">
     <img src="PHOTO-2026-05-14-14-21-01_2.jpg" alt="MK December"/>
